@@ -3,8 +3,10 @@
 **Proyecto final de prgramacion dinamica**
 
 **Lenguajes**
->HTML:5
+>HTML
+
 >CSS
+
 >JavaScript
 
 **Framework**
