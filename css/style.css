@@ -1,0 +1,382 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+dl,
+dt,
+dd,
+ol,
+nav ul,
+nav li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+ol,
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+/* start editing from here */
+
+a {
+    text-decoration: none;
+}
+
+.txt-rt {
+    text-align: right;
+}
+
+
+/* text align right */
+
+.txt-lt {
+    text-align: left;
+}
+
+
+/* text align left */
+
+.txt-center {
+    text-align: center;
+}
+
+
+/* text align center */
+
+.float-rt {
+    float: right;
+}
+
+
+/* float right */
+
+.float-lt {
+    float: left;
+}
+
+
+/* float left */
+
+.clear {
+    clear: both;
+}
+
+
+/* clear float */
+
+.pos-relative {
+    position: relative;
+}
+
+
+/* Position Relative */
+
+.pos-absolute {
+    position: absolute;
+}
+
+
+/* Position Absolute */
+
+.vertical-base {
+    vertical-align: baseline;
+}
+
+
+/* vertical align baseline */
+
+.vertical-top {
+    vertical-align: top;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+.mt-15 {
+    margin-top: 15px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-70 {
+    margin-top: 70px;
+}
+
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-50 {
+    margin-bottom: 50px;
+}
+
+.ml-15 {
+    margin-left: 15px;
+}
+
+.ml-30 {
+    margin-left: 30px;
+}
+
+.ml-50 {
+    margin-left: 50px;
+}
+
+.ml-70 {
+    margin-left: 70px;
+}
+
+.ml-100 {
+    margin-left: 100px;
+}
+
+.ml-200 {
+    margin-left: 200px;
+}
+
+.ml-250 {
+    margin-left: 250px;
+}
+
+.mr-15 {
+    margin-right: 15px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.mr-70 {
+    margin-right: 70px;
+}
+
+.mb-70 {
+    margin-bottom: 70px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.bg-img {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.bg-transparent-dark {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.bg-transparent-light {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.height-500 {
+    height: 500px !important;
+}
+
+.height-600 {
+    height: 600px !important;
+}
+
+.height-700 {
+    height: 700px !important;
+}
+
+.height-800 {
+    height: 800px !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+p,
+a,
+select {
+    font-family: 'PT Sans Narrow', sans-serif;
+    margin: 0;
+}
+
+nav {
+    background-color: #941751;
+}
+
+button {
+    height: 40px;
+    width: auto;
+    background-color: #941751;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: .5em;
+}
+
+table {
+    font-family: verdana, arial, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #cecece;
+    border-collapse: collapse;
+    width: auto;
+}
+
+table th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #941751;
+    background-color: #941751;
+    color: white;
+}
+
+table td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #cecece;
+    background-color: #ffffff;
+}
+
+.cambio-aceite {
+    padding: 70px 40px;
+    background-color: #FFF;
+    border: 1px solid #AAA;
+    border-radius: 20px;
+    position: absolute;
+    margin-left: 40%;
+    z-index: 9999999;
+}
+
+.mostrar {
+    display: none;
+}
