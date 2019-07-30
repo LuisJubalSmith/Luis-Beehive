@@ -5,7 +5,7 @@ class DataManager {
         this.bees = [];
         this.getData();
 
-    }
+    };
     /*
     https://jsonplaceholder.typicode.com/
     posts	100 posts
@@ -83,7 +83,7 @@ class DataManager {
                 let address = new Address('San Jose', geo, 'De la iglesia San Bruno 100 mts oeste y luego 100 mts norte, condominio Villa Robledo casa nro 4, Colima de Tibas. San Juan de Tibas');
                 let company = new Company('Proyecto Progra dinamica', 'Aplicacion red social', 'luisBeehive');
                 let bee = new Bee(0, 'Luis Smith', 'smith8776', 'jubal8776@gmail.com', address, '(506)70220930', 'LuiSmith.com', 'LuiSmith Company');
-
+                this.bees.push(bee);
 
                 data.forEach(userData => {
 
@@ -100,7 +100,7 @@ class DataManager {
                 //When all users area parsed
                 this.getPosts();
                 // this.getComments();
-                // this.getAlbums();
+                this.getAlbums();
                 // this.getPhotos();
                 // this.getTodos();
             }
@@ -118,11 +118,80 @@ class DataManager {
                     let post = new Post(postData.id, postData.userId, postData.body, postData.title);
                     this.addPostToBee(post);
                 });
-                console.log(this.bees);
+                // console.log(this.bees);
             };
             this.getComments();
         }
     }
+
+
+
+    getCommentsCallback(e) {
+        let request = e.target;
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                const postsData = JSON.parse(request.response);
+                // console.log(postsData);
+                postsData.forEach(postData => {
+                    // console.log(postData);
+                    let comment = new Comment(postsData.email, postsData.id, postsData.name, postsData.postId);
+                    this.addCommenstToBee(comment);
+
+                });
+
+            }
+        }
+    }
+
+    getAlbumsCallback(e) {
+        let request = e.target;
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                const postsData = JSON.parse(request.response);
+                console.log(postsData);
+
+                postsData.forEach(postsData => {
+                    let album = new Album(postsData.id,
+                        postsData.title, postsData.userId);
+                    this.addAlbumToBee(album)
+                })
+            }
+        }
+    }
+
+    getPhotosCallback(e) {
+        let request = e.target;
+
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                const photosData = JSON.parse(request.response);
+
+                photosData.forEach(photosData => {
+                        let photo = new photo(photo.albumId, photo.id, photo.thumbnailUrl, photo.title);
+                        this.addPhotosToAlbum(photos);
+                    })
+                    // console.log(data);
+            }
+        }
+    }
+
+    getTodosCallback(e) {
+        let request = e.target;
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status === 200) {
+                const todosData = JSON.parse(request.response);
+
+                todosData.forEach(todosData => {
+
+                        let todos = new Todos(todo.userId, todo.title, todo.id, todo.completed);
+                        this.addTodosToBee(todos);
+                    })
+                    // console.log(data);
+            }
+        }
+    }
+
+    // All add
 
     addPostToBee(post) {
         for (let i = 0; i < this.bees.length; i++) {
@@ -134,50 +203,54 @@ class DataManager {
         }
     }
 
-    getCommentsCallback(e) {
-        let request = e.target;
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-                const data = JSON.parse(request.response);
-                console.log(data);
+    addCommenstToBee(comment) {
+        for (let i = 0; i < this.bees.length; i++) {
+            const bee = this.bees[i];
+            for (let x = 0; x < bee.posts.length; x++) {
+                const post = bee.posts[x];
+                if (post.id === comment.postId) {
+                    post.comments.push(comment);
+                    break;
+
+                }
+
             }
         }
     }
 
-
-
-    getAlbumsCallback(e) {
-        let request = e.target;
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-                const data = JSON.parse(request.response);
-                console.log(data);
+    addAlbumToBee(album) {
+        for (let i = 0; i < this.bees.length; i++) {
+            const bee = this.bees[i];
+            if (bee.id === album.userId) {
+                bee.albums.push(album);
+                break;
             }
         }
     }
 
+    addPhotosToAlbum(photo) {
+        for (let i = 0; i < this.bees.length; i++) {
+            const bee = this.bees[i];
+            for (let x = 0; x < bee.albums.length; x++) {
+                const album = bee.albums[x];
+                if (album.id === photo.albumId) {
+                    album.photo.push(photo);
+                    break
+                };
+            };
 
+        };
+    };
 
-    getPhotosCallback(e) {
-        let request = e.target;
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-                const data = JSON.parse(request.response);
-                console.log(data);
+    addTodosToBee(todo) {
+        for (let i = 0; i < this.bees.length; i++) {
+            const bee = this.bees[i];
+            if (bee.id === todo.userId) {
+                bee.todos.push(todo);
             }
         }
     }
 
-
-    getTodosCallback(e) {
-        let request = e.target;
-        if (request.readyState === XMLHttpRequest.DONE) {
-            if (request.status === 200) {
-                const data = JSON.parse(request.response);
-                console.log(data);
-            }
-        }
-    }
 
 
 
