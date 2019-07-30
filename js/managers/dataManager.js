@@ -1,20 +1,20 @@
 class DataManager {
     constructor(pappManager) {
-            this.appManager = pappManager;
-            this.url = 'https://jsonplaceholder.typicode.com/';
-            this.bees = [];
-            this.getData();
+        this.appManager = pappManager;
+        this.url = 'https://jsonplaceholder.typicode.com/';
+        this.bees = [];
+        this.getData();
 
-        }
-        /*
-        https://jsonplaceholder.typicode.com/
-        posts	100 posts
-        comments	500 comments
-        albums	100 albums
-        photos	5000 photos
-        todos	200 todos
-        users	10 users
-        */
+    }
+    /*
+    https://jsonplaceholder.typicode.com/
+    posts	100 posts
+    comments	500 comments
+    albums	100 albums
+    photos	5000 photos
+    todos	200 todos
+    users	10 users
+    */
 
     //all GET
     getData() {
@@ -112,7 +112,7 @@ class DataManager {
 
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                const data = JSON.parse(request.response);
+                const postsData = JSON.parse(request.response);
 
                 postsData.forEach(postData => {
                     let post = new Post(postData.id, postData.userId, postData.body, postData.title);
