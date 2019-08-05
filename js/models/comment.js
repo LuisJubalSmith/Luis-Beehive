@@ -1,9 +1,9 @@
 class Comment {
-    constructor(pbody, pemail, pid, pname, ppostId) {
+    constructor(pid, ppostId, pname, pbody, pemail) {
         this.body = pbody;
         this.email = pemail;
         this.id = pid;
         this.name = pname;
-        this.ppostId = ppostId;
+        this.postId = ppostId;
     }
 }

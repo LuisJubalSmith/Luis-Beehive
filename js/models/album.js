@@ -4,5 +4,6 @@ class Album {
         this.title = ptitle;
         this.userId = puserId;
         // this.album = palbum;
+        this.photos = [];
     }
 }

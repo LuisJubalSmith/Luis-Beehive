@@ -87,22 +87,19 @@ class DataManager {
 
                 data.forEach(userData => {
 
-                    geo = new Geo(userData.address.geo.lat, userData.address.geo.lng);
-                    address = new Address(userData.address.city, geo, userData.address.street, userData.address.suite, userData.address.zipcode);
-                    company = new Company(userData.company.bs, userData.company.catchPhare, userData.company.name);
-                    bee = new Bee(userData.id, userData.name, userData.username, userData.email, address, userData.phone, userData.website, company);
-                    this.bees.push(bee);
+                        geo = new Geo(userData.address.geo.lat, userData.address.geo.lng);
+                        address = new Address(userData.address.city, geo, userData.address.street, userData.address.suite, userData.address.zipcode);
+                        company = new Company(userData.company.bs, userData.company.catchPhare, userData.company.name);
+                        bee = new Bee(userData.id, userData.name, userData.username, userData.email, address, userData.phone, userData.website, company);
+                        this.bees.push(bee);
 
 
-                })
-
-
-                //When all users area parsed
+                    })
+                    //When all users area parsed
                 this.getPosts();
-                // this.getComments();
                 this.getAlbums();
-                // this.getPhotos();
-                // this.getTodos();
+                this.getTodos();
+                console.log(this.bees);
             }
         }
     }
@@ -114,8 +111,14 @@ class DataManager {
             if (request.status === 200) {
                 const postsData = JSON.parse(request.response);
 
+                let post = new Post(101, 0, 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis ', 'Aprediendo Objetos');
+                this.addPostToBee(post);
+
+                post = new Post(102, 0, 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis ', 'Aprediendo Objetos');
+                this.addPostToBee(post);
+
                 postsData.forEach(postData => {
-                    let post = new Post(postData.id, postData.userId, postData.body, postData.title);
+                    post = new Post(postData.id, postData.userId, postData.body, postData.title);
                     this.addPostToBee(post);
                 });
                 // console.log(this.bees);
@@ -130,12 +133,36 @@ class DataManager {
         let request = e.target;
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                const postsData = JSON.parse(request.response);
-                // console.log(postsData);
-                postsData.forEach(postData => {
+                const commentsData = JSON.parse(request.response);
+
+                let comment = new Comment(501, 101, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                comment = new Comment(502, 101, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                comment = new Comment(503, 101, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                comment = new Comment(504, 102, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                comment = new Comment(505, 102, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                comment = new Comment(506, 102, 'Carlos Vargas', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum quidem quo, quod hic blanditiis', 'luis@gmail.com');
+                this.addCommenstToPost(comment);
+
+                commentsData.forEach(commentsData => {
                     // console.log(postData);
-                    let comment = new Comment(postsData.email, postsData.id, postsData.name, postsData.postId);
-                    this.addCommenstToBee(comment);
+                    comment = new Comment(
+                        commentsData.id,
+                        commentsData.postId,
+                        commentsData.name,
+                        commentsData.body,
+                        commentsData.email
+                    );
+                    this.addCommenstToPost(comment);
 
                 });
 
@@ -147,12 +174,17 @@ class DataManager {
         let request = e.target;
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
-                const postsData = JSON.parse(request.response);
-                console.log(postsData);
+                const albumData = JSON.parse(request.response);
+                console.log(albumData);
 
-                postsData.forEach(postsData => {
-                    let album = new Album(postsData.id,
-                        postsData.title, postsData.userId);
+                let album = new Album(101,
+                    'Album Prueba', 0);
+                this.addAlbumToBee(album)
+
+
+                albumData.forEach(albumData => {
+                    album = new Album(albumData.id,
+                        albumData.title, albumData.userId);
                     this.addAlbumToBee(album)
                 })
             }
@@ -166,9 +198,12 @@ class DataManager {
             if (request.status === 200) {
                 const photosData = JSON.parse(request.response);
 
+                let photo = new Photo(101, 5001, '../../img/img1.jpg', 'Prueba foto');
+                this.addPhotosToAlbum(photo);
+
                 photosData.forEach(photosData => {
-                        let photo = new photo(photo.albumId, photo.id, photo.thumbnailUrl, photo.title);
-                        this.addPhotosToAlbum(photos);
+                        photo = new Photo(photosData.albumId, photosData.id, photosData.thumbnailUrl, photosData.title);
+                        this.addPhotosToAlbum(photo);
                     })
                     // console.log(data);
             }
@@ -183,7 +218,7 @@ class DataManager {
 
                 todosData.forEach(todosData => {
 
-                        let todos = new Todos(todo.userId, todo.title, todo.id, todo.completed);
+                        let todos = new Todos(todosData.userId, todosData.title, todosData.id, todosData.completed);
                         this.addTodosToBee(todos);
                     })
                     // console.log(data);
@@ -203,11 +238,12 @@ class DataManager {
         }
     }
 
-    addCommenstToBee(comment) {
+    addCommenstToPost(comment) {
         for (let i = 0; i < this.bees.length; i++) {
             const bee = this.bees[i];
             for (let x = 0; x < bee.posts.length; x++) {
                 const post = bee.posts[x];
+
                 if (post.id === comment.postId) {
                     post.comments.push(comment);
                     break;
@@ -221,6 +257,7 @@ class DataManager {
     addAlbumToBee(album) {
         for (let i = 0; i < this.bees.length; i++) {
             const bee = this.bees[i];
+
             if (bee.id === album.userId) {
                 bee.albums.push(album);
                 break;
@@ -250,18 +287,6 @@ class DataManager {
             }
         }
     }
-
-
-
-
-    setUserPost(post) {
-        this.users.forEach(user => {
-            if (user.id === post.userid) {
-                //add post to user
-            }
-        });
-    }
-
 
 
 }
