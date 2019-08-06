@@ -1,0 +1,109 @@
+:root {
+    --mainColor: aqua;
+    --secondaryColor: orangeRed;
+    --beesColor: white;
+    --postsColor: white;
+    --postColor: aqua;
+    --albumsColor: blue;
+    --todosColor: white;
+    --todoColorComplete: lightgray;
+    --todoColorNotComplete: lightblue;
+    --beeColor: lightgray;
+    --beesActivityColor: purple;
+}
+
+.headerComponent {
+    padding: 5px 0px 5px 5px;
+    font-size: 20px;
+    font-weight: 800;
+    background-color: var(--mainColor);
+}
+
+.appComponent {
+    background-color: var(--secondaryColor);
+    display: flow-root;
+    width: 100%;
+    height: 100vh;
+}
+
+.beesComponent {
+    background-color: var(--beesColor);
+    width: 50%;
+    height: 100vh;
+    float: left;
+    overflow: scroll;
+}
+
+.beeComponent {
+    height: auto;
+    background-color: var(--beeColor);
+    margin: 5px 0px 0px 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.beeActivityComponent {
+    /* background-color: var(--beesActivityColor); */
+    width: 50%;
+    height: 100vh;
+    float: right;
+}
+
+.postsComponent {
+    background-color: var(--postsColor);
+    height: 100vh;
+    overflow: scroll;
+}
+
+.postComponent {
+    background-color: var(--postColor);
+    height: auto;
+    margin: 5px 5px 0px 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.albumsComponent {
+    background-color: var(--albumsColor);
+    height: 100vh;
+}
+
+.todosComponent {
+    background-color: var(--todosColor);
+    height: 100vh;
+    overflow: scroll;
+}
+
+.todoComponent {
+    height: auto;
+    margin: 5px 5px 0px 5px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.todoColorComplete {
+    background-color: var(--todoColorComplete);
+}
+
+.todoColorNotComplete {
+    background-color: var(--todoColorNotComplete);
+}
+
+.newPostComponent {
+    background-color: blueviolet;
+    height: 100vh;
+}
+
+.newCommentComponent {
+    background-color: blueviolet;
+    height: 100vh;
+}
+
+.newTodoComponent {
+    background-color: blueviolet;
+    height: 100vh;
+}
+
+.buttonsContainer {
+    text-align: center;
+}

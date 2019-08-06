@@ -97,9 +97,9 @@ class DataManager {
                     })
                     //When all users area parsed
                 this.getPosts();
-                this.getAlbums();
-                this.getTodos();
-                console.log(this.bees);
+                // this.getAlbums();
+                // this.getTodos();
+                // console.log(this.bees);
             }
         }
     }
@@ -165,10 +165,11 @@ class DataManager {
                     this.addCommenstToPost(comment);
 
                 });
-
+                this.getAlbums();
             }
         }
     }
+
 
     getAlbumsCallback(e) {
         let request = e.target;
@@ -186,7 +187,8 @@ class DataManager {
                     album = new Album(albumData.id,
                         albumData.title, albumData.userId);
                     this.addAlbumToBee(album)
-                })
+                });
+                this.getPhotos();
             }
         }
     }
@@ -202,10 +204,11 @@ class DataManager {
                 this.addPhotosToAlbum(photo);
 
                 photosData.forEach(photosData => {
-                        photo = new Photo(photosData.albumId, photosData.id, photosData.thumbnailUrl, photosData.title);
-                        this.addPhotosToAlbum(photo);
-                    })
-                    // console.log(data);
+                    photo = new Photo(photosData.albumId, photosData.id, photosData.thumbnailUrl, photosData.title);
+                    this.addPhotosToAlbum(photo);
+                })
+                this.getTodos();
+                console.log(this.bees);
             }
         }
     }
@@ -274,13 +277,22 @@ class DataManager {
             for (let x = 0; x < bee.albums.length; x++) {
                 const album = bee.albums[x];
                 if (album.id === photo.albumId) {
-                    album.photo.push(photo);
+                    album.photos.push(photo);
                     break
                 };
             };
 
         };
     };
+
+
+    setUserPost(post) {
+        this.users.map(user => {
+            if (user.id === post.userid) {
+                //add post to user
+            }
+        });
+    }
 
     addTodosToBee(todo) {
         for (let i = 0; i < this.bees.length; i++) {

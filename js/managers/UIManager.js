@@ -2,7 +2,7 @@ class UIManager {
     constructor(pAppManager) {
         this.appManager = pAppManager;
         this.beesComponent = new BeesComponent(this);
-        this.postComponent = new PostComponent(this);
+        this.postsComponent = new PostsComponent(this);
         this.albumsComponent = new AlbumsComponent(this);
         this.todosComponent = new TodosComponent(this);
     }
@@ -16,7 +16,6 @@ class UIManager {
         this.postsComponent.show();
         this.albumsComponent.hide();
         this.todosComponent.hide();
-
     }
 
     showBeeAlbums(bee) {
