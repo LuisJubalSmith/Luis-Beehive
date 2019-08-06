@@ -207,7 +207,7 @@ class DataManager {
                 })
 
                 this.getTodos();
-                // console.log(data);
+                console.log(this.bees);
             }
         }
     }
