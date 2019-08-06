@@ -1,4 +1,4 @@
-class Todos {
+class Todo {
     constructor(pUserId, pTitle, pId, pCompleted) {
         this.userId = pUserId;
         this.title = pTitle;

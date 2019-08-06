@@ -51,7 +51,7 @@ class DataManager {
 
     getPhotos() {
 
-        const request = this.createRequest('photo', this.getPhotosCallback);
+        const request = this.createRequest('photos', this.getPhotosCallback);
 
     }
 
@@ -175,7 +175,7 @@ class DataManager {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 const albumData = JSON.parse(request.response);
-                console.log(albumData);
+                // console.log(albumData);
 
                 let album = new Album(101,
                     'Album Prueba', 0);
@@ -198,7 +198,7 @@ class DataManager {
             if (request.status === 200) {
                 const photosData = JSON.parse(request.response);
 
-                let photo = new Photo(101, 5001, '../../img/img1.jpg', 'Prueba foto');
+                let photo = new Photo(101, 5001, '../../img/img1.jpg', 'Prueba foto', '../../img/img1.jpg');
                 this.addPhotosToAlbum(photo);
 
                 photosData.forEach(photosData => {
@@ -216,9 +216,12 @@ class DataManager {
             if (request.status === 200) {
                 const todosData = JSON.parse(request.response);
 
+                let todos = new Todo(0, '201', 'Lorem ipsum dolor sit', 'true');
+                this.addTodosToBee(todos);
+
                 todosData.forEach(todosData => {
 
-                        let todos = new Todos(todosData.userId, todosData.title, todosData.id, todosData.completed);
+                        todos = new Todo(todosData.userId, todosData.title, todosData.id, todosData.completed);
                         this.addTodosToBee(todos);
                     })
                     // console.log(data);
@@ -284,6 +287,7 @@ class DataManager {
             const bee = this.bees[i];
             if (bee.id === todo.userId) {
                 bee.todos.push(todo);
+                break
             }
         }
     }
