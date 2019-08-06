@@ -5,7 +5,5 @@ class Photo {
         this.thumbnailUrl = pthumbnailUrl;
         this.title = ptitle;
         this.url = purl;
-
-
     }
 }

@@ -87,19 +87,22 @@ class DataManager {
 
                 data.forEach(userData => {
 
-                        geo = new Geo(userData.address.geo.lat, userData.address.geo.lng);
-                        address = new Address(userData.address.city, geo, userData.address.street, userData.address.suite, userData.address.zipcode);
-                        company = new Company(userData.company.bs, userData.company.catchPhare, userData.company.name);
-                        bee = new Bee(userData.id, userData.name, userData.username, userData.email, address, userData.phone, userData.website, company);
-                        this.bees.push(bee);
+                    geo = new Geo(userData.address.geo.lat, userData.address.geo.lng);
+                    address = new Address(userData.address.city, geo, userData.address.street, userData.address.suite, userData.address.zipcode);
+                    company = new Company(userData.company.bs, userData.company.catchPhare, userData.company.name);
+                    bee = new Bee(userData.id, userData.name, userData.username, userData.email, address, userData.phone, userData.website, company);
+                    this.bees.push(bee);
 
 
-                    })
-                    //When all users area parsed
+                })
+                //When all users area parsed
                 this.getPosts();
+<<<<<<< HEAD
                 // this.getAlbums();
                 // this.getTodos();
                 // console.log(this.bees);
+=======
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
             }
         }
     }
@@ -126,8 +129,6 @@ class DataManager {
             this.getComments();
         }
     }
-
-
 
     getCommentsCallback(e) {
         let request = e.target;
@@ -162,10 +163,17 @@ class DataManager {
                         commentsData.body,
                         commentsData.email
                     );
-                    this.addCommenstToPost(comment);
 
+                    this.addCommenstToPost(comment);
                 });
+<<<<<<< HEAD
                 this.getAlbums();
+=======
+
+                this.getAlbums();
+
+
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
             }
         }
     }
@@ -176,7 +184,10 @@ class DataManager {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status === 200) {
                 const albumData = JSON.parse(request.response);
+<<<<<<< HEAD
                 // console.log(albumData);
+=======
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
 
                 let album = new Album(101,
                     'Album Prueba', 0);
@@ -187,8 +198,15 @@ class DataManager {
                     album = new Album(albumData.id,
                         albumData.title, albumData.userId);
                     this.addAlbumToBee(album)
+<<<<<<< HEAD
                 });
                 this.getPhotos();
+=======
+                })
+
+                this.getPhotos();
+
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
             }
         }
     }
@@ -207,6 +225,10 @@ class DataManager {
                     photo = new Photo(photosData.albumId, photosData.id, photosData.thumbnailUrl, photosData.title);
                     this.addPhotosToAlbum(photo);
                 })
+<<<<<<< HEAD
+=======
+
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
                 this.getTodos();
                 console.log(this.bees);
             }
@@ -223,11 +245,17 @@ class DataManager {
                 this.addTodosToBee(todos);
 
                 todosData.forEach(todosData => {
+                    let todos = new Todos(todosData.userId, todosData.title, todosData.id, todosData.completed);
+                    this.addTodosToBee(todos);
+                })
 
+<<<<<<< HEAD
                         todos = new Todo(todosData.userId, todosData.title, todosData.id, todosData.completed);
                         this.addTodosToBee(todos);
                     })
                     // console.log(data);
+=======
+>>>>>>> c48440f37f52efb2492d02a993f27c4f289d3eea
             }
         }
     }
