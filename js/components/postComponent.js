@@ -14,5 +14,9 @@ class PostComponent {
         this.body = document.createElement('p');
         this.body.innerHTML = this.model.body;
         this.container.appendChild(this.body);
+
+        this.addBtn = document.createElement('button');
+        this.addBtn.innerHTML = this.model.addBtn;
+        this.addBtn.appendChild(this.addBtn);
     }
 }
