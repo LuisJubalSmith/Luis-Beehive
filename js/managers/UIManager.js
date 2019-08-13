@@ -58,6 +58,7 @@ class UIManager {
         this.todosComponent.hide();
         this.newCommentComponent.show(post);
     }
+    
     hideNewCommentComponent() {
         this.showBeePosts(this.selectedBee);
     }

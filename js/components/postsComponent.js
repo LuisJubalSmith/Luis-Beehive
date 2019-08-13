@@ -1,6 +1,6 @@
 class PostsComponent {
     constructor(pUIManager) {
-        this.UIManager = pUIManager;
+        this.uiManager = pUIManager;
         this.container = document.getElementById('postsComponent');
 
     }
