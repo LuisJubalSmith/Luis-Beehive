@@ -31,6 +31,8 @@ class PostComponent {
     }
 
     addCommentComponents() {
-            this.model.comments.forEach(comment => {
-                let commentComponent = new CommentComponent(comment, this.container, this.uiManager);
-            });
+        this.model.comments.forEach(comment => {
+            let commentComponent = new CommentComponent(comment, this.container, this.uiManager);
+        });
+    }
+}
