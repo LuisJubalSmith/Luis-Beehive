@@ -16,7 +16,21 @@ class PostComponent {
         this.container.appendChild(this.body);
 
         this.addBtn = document.createElement('button');
-        this.addBtn.innerHTML = this.model.addBtn;
-        this.addBtn.appendChild(this.addBtn);
+        this.container.appendChild(this.addBtn);
+        this.addBtn.innerHTML = 'Add New Comment';
+        this.addBtn.classList.add('addButton');
+        this.addBtn.onclick = this.addNewComment.bind(this);
+
+        this.addCommentComponents();
+
+
     }
-}
+
+    addNewComment() {
+        this.uiManager.showNewCommentComponent(this.model);
+    }
+
+    addCommentComponents() {
+            this.model.comments.forEach(comment => {
+                let commentComponent = new CommentComponent(comment, this.container, this.uiManager);
+            });

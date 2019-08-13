@@ -7,6 +7,8 @@ class BeesComponent {
     showBees(bees) {
         this.container.innerHTML = '';
         bees.forEach(bee => {
+            // console.log(bee);
+
             let beeComponent = new BeeComponent(bee, this.container, this.uiManager);
         });
     }

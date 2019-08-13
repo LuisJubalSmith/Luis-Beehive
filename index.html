@@ -32,10 +32,11 @@
     <!-- components -->
     <script src="js/components/appComponent.js"></script>
     <script src="js/components/headerComponent.js"></script>
-    <script src="js/components/beeActivityComponent.js"></script>
+    <!-- <script src="js/components/beeActivityComponent.js"></script> -->
     <script src="js/components/todosComponent.js"></script>
     <script src="js/components/todoComponent.js"></script>
     <script src="js/components/albumComponent.js"></script>
+    <script src="js/components/albumsComponent.js"></script>
     <script src="js/components/photoComponent.js"></script>
     <script src="js/components/postsComponent.js"></script>
     <script src="js/components/postComponent.js"></script>
@@ -56,17 +57,19 @@
         </nav>
     </header>
 
-    <div id="headerComponent" class="headerComponent mt-15">THE BEEHIVE</div>
+    <div id="headerComponent" class="headerComponent">The Beehive
+        <button id="newBtn" class="newBtn">New</button>
+    </div>
     <div id="appComponent" class="appComponent">
         <div id="beesComponent" class="beesComponent">
         </div>
         <div id="beeActivityComponent" class="beeActivityComponent">
-            <div id="postsComponent" class="postsComponent">POST</div>
-            <div id="albumsComponent" class="albumsComponent">ALBUM</div>
-            <div id="todosComponent" class="todosComponent">TODOS</div>
-            <div id="newPostComponent" class="newPostComponent">NEW POST</div>
-            <div id="newCommentComponent" class="newCommentComponent">NEW COMMENT</div>
-            <div id="newTodoComponent" class="newTodoComponent">NEW TODO</div>
+            <div id="postsComponent" class="postsComponent"></div>
+            <div id="albumsComponent" class="albumsComponent" hidden>ALBUM</div>
+            <div id="todosComponent" class="todosComponent" hidden>TODOS</div>
+            <div id="newPostComponent" class="newPostComponent" hidden>NEW POST</div>
+            <div id="newCommentComponent" class="newCommentComponent" hidden></div>
+            <div id="newTodoComponent" class="newTodoComponent" hidden>NEW TODO</div>
         </div>
 
     </div>

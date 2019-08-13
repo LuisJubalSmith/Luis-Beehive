@@ -5,7 +5,7 @@ class BeeComponent {
         this.parent = pparent;
 
         this.container = document.createElement('div');
-        this.container = classList.add('beeComponent');
+        this.container.classList.add('beeComponent');
         this.parent.appendChild(this.container);
 
         this.title = document.createElement('h4');
@@ -51,11 +51,8 @@ class BeeComponent {
         this.todosBtn = document.createElement('button');
         this.todosBtn.innerHTML = 'Todos: ' + this.model.todos.length;
         this.buttonsContainer.appendChild(this.todosBtn);
-
-
-
+        this.todosBtn.onclick = this.onTodosBtnClick.bind(this);
     }
-
 
     onPostBtnClick(e) {
         this.uiManager.showBeePosts(this.model);
@@ -65,7 +62,7 @@ class BeeComponent {
         this.uiManager.showBeeAlbums(this.model);
     }
     onTodosBtnClick(e) {
-        this.uiManager.showBeeAlbums(this.model);
+        this.uiManager.showBeeTodos(this.model);
     }
 
 }

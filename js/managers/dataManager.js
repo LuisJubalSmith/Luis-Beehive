@@ -4,6 +4,7 @@ class DataManager {
         this.url = 'https://jsonplaceholder.typicode.com/';
         this.bees = [];
         this.getData();
+        this.bee;
 
     };
     /*
@@ -151,7 +152,7 @@ class DataManager {
 
                 commentsData.forEach(commentsData => {
                     // console.log(postData);
-                    comment = new Comment(
+                    let comment = new Comment(
                         commentsData.id,
                         commentsData.postId,
                         commentsData.name,
@@ -161,9 +162,9 @@ class DataManager {
 
                     this.addCommenstToPost(comment);
                 });
-                this.getAlbums();
 
-            }
+            };
+            this.getAlbums();
         }
     }
 
@@ -224,7 +225,7 @@ class DataManager {
                     todos = new Todo(todosData.userId, todosData.title, todosData.id, todosData.completed);
                     this.addTodosToBee(todos);
                 })
-
+                this.appManager.completedDownload();
             }
         }
     }
