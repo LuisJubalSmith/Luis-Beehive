@@ -1,4 +1,4 @@
-class BeeComponent {
+class appComponent {
     constructor(pmodel, pparent, pUIManager) {
         this.uiManager = pUIManager;
         this.model = pmodel;
